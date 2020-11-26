@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>bubbleHover</title>
+  </head>
+  <body>
+    <section id="container"></section>
+
+    <script>
+      var $container = document.querySelector("#container");
+
+      const nav = ["Home", "About", "Info", "Portfolio"];
+
+      nav.map((item) => {
+        var $btn = document.createElement("div");
+        $btn.classList.add("button");
+        var $p = document.createElement("p");
+        var $span = document.createElement("span");
+        $span.innerText = item;
+
+        $p.appendChild($span);
+        $btn.appendChild($p);
+
+        for (var i = 0; i < 3; i++) {
+          var $figure = document.createElement("figure");
+          $btn.appendChild($figure);
+        }
+
+        $container.appendChild($btn);
+      });
+    </script>
+  </body>
+</html>

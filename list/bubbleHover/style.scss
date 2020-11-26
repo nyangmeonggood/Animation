@@ -1,0 +1,88 @@
+:root {
+  --color: white;
+  --ball1: 20px;
+  --ball2: 40px;
+  --ball3: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#container {
+  position: relative;
+  text-align: center;
+
+  > div {
+    position: relative;
+    border: 2px solid black;
+    box-sizing: border-box;
+
+    &:hover {
+      figure {
+        &:nth-of-type(1) {
+          width: var(--ball1);
+          height: var(--ball1);
+          top: -40%;
+          left: 105%;
+        }
+        &:nth-of-type(2) {
+          width: var(--ball2);
+          height: var(--ball2);
+          top: 80%;
+          left: -10%;
+        }
+        &:nth-of-type(3) {
+          width: var(--ball3);
+          height: var(--ball3);
+          top: 105%;
+          left: 107%;
+        }
+      }
+    }
+
+    p {
+      position: relative;
+      z-index: 10;
+      padding: 20px 50px;
+      background-color: var(--color);
+    }
+    figure {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      background-color: var(--color);
+      border: 2px solid black;
+      border-radius: 50%;
+      transition: 0.5s;
+
+      &:nth-of-type(1) {
+      }
+      &:nth-of-type(2) {
+        transition-delay: 0.2s;
+      }
+      &:nth-of-type(3) {
+        transition-delay: 0.3s;
+      }
+    }
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+  }
+}
