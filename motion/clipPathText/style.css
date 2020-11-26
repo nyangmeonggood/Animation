@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Black Han Sans", sans-serif;
+}
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+section > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #badc58;
+}
+
+section > div:last-child {
+  background-color: #ff7979;
+  clip-path: circle(200px at center);
+}
+
+section > div:last-child:hover {
+  animation: brr 0.1s linear infinite alternate;
+  cursor: pointer;
+}
+@keyframes brr {
+  0% {
+    transform: translate(-4px, 4px) scale(0.99);
+  }
+  100% {
+    transform: translate(4px, -4px) scale(1.01);
+  }
+}
+
+section > div p {
+  position: absolute;
+  left: 0;
+  font-size: 10em;
+  font-weight: bold;
+  color: white;
+  white-space: nowrap;
+  line-height: 100vh;
+  cursor: default;
+  animation: hlla 60s linear infinite alternate;
+}
+
+section > div:last-child p {
+  -webkit-text-stroke: 2px;
+  -webkit-text-stroke-color: #fff;
+  color: transparent;
+}
+
+@keyframes hlla {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

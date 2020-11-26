@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>circularBar</title>
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <ul class="content">
+      <li class="card card1">
+        <div class="box">
+          <div class="percent">
+            <svg>
+              <circle cx="70" cy="70" r="70"></circle>
+              <circle cx="70" cy="70" r="70"></circle>
+            </svg>
+            <div class="number">
+              <h2>90<span>%</span></h2>
+            </div>
+          </div>
+          <h2 class="text">HTML</h2>
+        </div>
+      </li>
+      <li class="card card2">
+        <div class="box">
+          <div class="percent">
+            <svg>
+              <circle cx="70" cy="70" r="70"></circle>
+              <circle cx="70" cy="70" r="70"></circle>
+            </svg>
+            <div class="number">
+              <h2>95<span>%</span></h2>
+            </div>
+          </div>
+          <h2 class="text">CSS</h2>
+        </div>
+      </li>
+      <li class="card card3">
+        <div class="box">
+          <div class="percent">
+            <svg>
+              <circle cx="70" cy="70" r="70"></circle>
+              <circle cx="70" cy="70" r="70"></circle>
+            </svg>
+            <div class="number">
+              <h2>95<span>%</span></h2>
+            </div>
+          </div>
+          <h2 class="text">JS</h2>
+        </div>
+      </li>
+    </ul>
+  </body>
+
+  <script>
+    const outline = document.querySelector(".card3 svg circle:nth-child(2)");
+    const outlineLength = 140 * 3.14;
+    outline.style.strokeDasharray = outlineLength;
+    outline.style.strokeDashoffset = 0;
+
+    let duration = 60;
+    let elapsed = 0;
+
+    animate(elapsed);
+    function animate(offset) {
+      setTimeout(() => {
+        elapsed++;
+        if (elapsed > duration * 2) elapsed = 0;
+        animate((elapsed / duration) * outlineLength);
+      }, 10);
+      outline.style.strokeDashoffset = offset;
+    }
+  </script>
+</html>

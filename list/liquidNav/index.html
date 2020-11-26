@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Liquid Nav</title>
+  </head>
+  <body>
+    <div class="button facebook">
+      <i class="fab fa-facebook-f"> </i>
+      <div class="blurred">
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div class="button insta">
+      <i class="fab fa-instagram"> </i>
+      <div class="blurred">
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div class="button twitter">
+      <i class="fab fa-twitter"></i>
+      <div class="blurred">
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <svg>
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="abb" />
+          <feColorMatrix
+            in="abb"
+            type="matrix"
+            values=" 1 0 0 0 0
+                    0 1 0 0 0
+                    0 0 1 0 0
+                    0 0 0 36 -10"
+            result="abb"
+          />
+          <feBlend in="SourceGraphic" in2="abb" />
+        </filter>
+      </defs>
+    </svg>
+  </body>
+</html>

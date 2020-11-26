@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>parallexOverlayText</title>
+    <link rel="stylesheet" href="../../reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content">
+        <div class="container">
+            <div class="img_container">
+                <h2 class="text text-dark">
+                    <p class="parallax-title">
+                        SO CUTE MINK.
+                    </p>
+                </h2>
+            </div>
+            <h2 class="text">
+                <p class="parallax-title">
+                    SO CUTE MINK.
+                </p>
+            </h2>
+        </div>
+    </div>   
+</body>
+
+<script>
+    let atScroll = false;
+    let parallaxTitle = document.querySelectorAll(".parallax-title");
+
+    const scrollProgress = () => {
+        atScroll = true;
+        console.log(atScroll)
+    }
+
+    const raf = () => {
+        if(atScroll){
+            parallaxTitle.forEach((e, index) => {
+                e.style.transform = `translateX(-${window.scrollY/4.7}%)`;
+                e.style.opacity = 1
+            });
+            atScroll = false;
+        };
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+    window.addEventListener("scroll",scrollProgress);
+</script>
+</html>

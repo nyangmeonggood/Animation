@@ -1,0 +1,48 @@
+html,body{
+    width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: none;
+}
+
+.nav_box nav{text-align: center;}
+
+.nav_box nav a,
+.nav_box nav a span,
+.nav_box nav div{display: inline-block;}
+
+.nav_box nav a{
+    font-size: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.nav_box nav a:nth-child(odd){color: #00b894;}
+.nav_box nav a:nth-child(even){color: #e84393;}
+
+.nav_box nav a span{
+    pointer-events: none;
+    transition: transform 0.1s linear;
+}
+
+.cursor{
+    position: fixed;
+    pointer-events: none;
+    padding: 0.3rem;
+    border-radius: 50%;
+    background: #dbdbdb;
+    mix-blend-mode: difference;
+    transition: transform 0.3s ease;
+}
+
+.cursor{
+    transform: translate(-50%,-50%);
+}
+
+@media screen and (max-width:900px){
+    nav a{
+        width: 100%;
+        padding: 20px 0;
+    }
+}

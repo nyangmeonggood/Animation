@@ -1,0 +1,158 @@
+:root {
+  --bgactive: rgba(0, 0, 0, 0.2);
+}
+
+#nameTag {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 40px;
+  border-radius: 8px;
+  background-color: white;
+  padding: 4px;
+  width: 67%;
+  max-width: 500px;
+  text-align: center;
+
+  @media screen and (max-width: 900px) {
+    font-size: 5vw;
+  }
+
+  span {
+    padding: 4px;
+    border-radius: 4px;
+    display: block;
+    overflow: hidden;
+    border: 2px solid #f51412;
+  }
+}
+
+#bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &.active {
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+  }
+}
+
+#cover {
+  position: fixed;
+  width: 80%;
+  height: 10%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to right,
+    #36416b 90%,
+    #f3a53c 90%,
+    #f3a53c 94%,
+    #36416b 94%
+  );
+  font-family: "Raleway", sans-serif;
+  border-radius: 0 40px 0 0;
+
+  ul.bookmark {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    li {
+      position: absolute;
+      bottom: 100%;
+      transition: 0.5s;
+
+      &.active {
+        bottom: 84vh;
+        z-index: 2;
+
+        p {
+          padding: 12px 30px 20px 6px;
+
+          &:after {
+            border-left: 18px solid transparent;
+          }
+        }
+      }
+
+      &:hover {
+        p {
+          padding: 12px 30px 20px 6px;
+        }
+      }
+
+      p {
+        position: relative;
+        writing-mode: vertical-lr;
+        padding: 12px 30px 8px 6px;
+        font-weight: 600;
+        transition: 0.5s linear;
+        cursor: pointer;
+      }
+
+      &.pointer {
+        left: 15%;
+        background-image: linear-gradient(225deg, transparent 10px, #1abc9c 0);
+      }
+      &.scroll {
+        left: 70%;
+        background-image: linear-gradient(225deg, transparent 10px, #9b59b6 0);
+      }
+      &.list {
+        left: 32%;
+        background-image: linear-gradient(225deg, transparent 10px, #ea2027 0);
+      }
+      &.motion {
+        left: 50%;
+        background-image: linear-gradient(225deg, transparent 10px, #f6b93b 0);
+      }
+    }
+  }
+
+  ul.contents {
+    position: absolute;
+    width: calc(100% - 60px);
+    left: 20px;
+    bottom: 100%;
+    overflow: hidden;
+
+    > li {
+      position: relative;
+      width: 100%;
+      height: 0;
+      background-color: #f7f1e3;
+      transition: 0.5s;
+      box-sizing: border-box;
+      overflow: scroll;
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+
+      > ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        > li {
+          width: 25%;
+          text-align: center;
+          margin-bottom: 30px;
+        }
+      }
+
+      &.active {
+        height: 80vh;
+        padding: 80px 20px 20px 20px;
+        z-index: 1;
+      }
+    }
+  }
+}

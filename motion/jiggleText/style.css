@@ -1,0 +1,55 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #111;
+  font-family: "Righteous", cursive;
+}
+
+h2 {
+  position: relative;
+  color: white;
+  font-size: 13vw;
+}
+
+h2:before,
+h2:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: attr(data-text);
+}
+
+h2:before {
+  color: cyan;
+  z-index: -1;
+  animation: g1 0.3s ease infinite;
+}
+
+h2:after {
+  color: #ff00f4;
+  z-index: -2;
+  animation: g1 0.3s ease infinite reverse;
+}
+
+@keyframes g1 {
+  0% {
+    transform: translate(-2px, 2px);
+  }
+  25% {
+    transform: translate(-4px, 4px);
+  }
+  50% {
+    transform: translate(-2px, 2px);
+  }
+  75% {
+    transform: translate(2px, -4px);
+  }
+  100% {
+    transform: translate(-2px, 2px);
+  }
+}

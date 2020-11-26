@@ -1,0 +1,107 @@
+html,
+body {
+  height: 100%;
+}
+
+html {
+  background: #fff;
+}
+
+.box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  filter: url("#filter");
+  cursor: none;
+}
+#cursor {
+  position: fixed;
+  will-change: top, left;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #fc2;
+  pointer-events: none;
+  transition: 0.5s;
+  transition-property: width, height, background-color;
+}
+.ball {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #fc2;
+  transform: translate(-50%, -50%);
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+
+  &:hover ~ #cursor {
+    background-color: #ad2;
+    width: 30px;
+    height: 30px;
+    filter: blur(5px);
+  }
+
+  &:first-child {
+    animation-duration: 1.5s;
+    animation-name: no1;
+  }
+  &:nth-child(2) {
+    animation-duration: 2.5s;
+    animation-name: no2;
+  }
+  &:nth-child(3) {
+    animation-duration: 1.5s;
+    animation-name: no3;
+  }
+  &:nth-child(4) {
+    animation-duration: 2.5s;
+    animation-name: no4;
+  }
+}
+
+@keyframes no1 {
+  from {
+    transform: translate(-50%, -50%);
+  }
+  to {
+    transform: translate(-100%, -50%);
+  }
+}
+
+@keyframes no2 {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-100%, -50%);
+  }
+  100% {
+    transform: translate(-200%, -50%);
+  }
+}
+
+@keyframes no3 {
+  from {
+    transform: translate(-50%, -50%);
+  }
+  to {
+    transform: translate(0%, -50%);
+  }
+}
+
+@keyframes no4 {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(0%, -50%);
+  }
+  100% {
+    transform: translate(100%, -50%);
+  }
+}

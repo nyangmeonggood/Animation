@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>horizonScroll</title>
+    <link rel="stylesheet" href="../../reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="box">
+      <ul class="container">
+        <li class="block block-1"><h2>#f6b93b</h2></li>
+        <li class="block block-2"><h2>#0a3d62</h2></li>
+        <li class="block block-3"><h2>#38ada9</h2></li>
+        <li class="block block-4"><h2>#e55039</h2></li>
+        <li class="block block-5"><h2>#D6A2E8</h2></li>
+      </ul>
+    </div>
+  </body>
+
+  <script>
+    var $container = document.querySelector(".container");
+    var $box = document.querySelector(".box");
+    var $block = document.querySelector(".block");
+
+    $box.style.paddingBottom = `${
+      $block.offsetWidth * 6 + $container.offsetLeft
+    }px`;
+    const horizonScroll = (e) => {
+      $container.style.transform = `translateX(-${scrollY}px)`;
+    };
+    console.dir($container);
+    document.addEventListener("scroll", horizonScroll);
+  </script>
+</html>

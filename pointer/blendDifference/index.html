@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BasicForm</title>
+    <link rel="stylesheet" href="../../reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <ul>
+        <li><a href="#">Hi</a></li>
+        <li><a href="#">How R U?</a></li>
+        <li><a href="#">I am fine.</a></li>
+        <li><a href="#">Not pineapple</a></li>
+        <li><a href="#">Ok. Bye.</a></li>
+        <div id="cursor"></div>
+    </ul>
+</body>
+    <script>
+        var cursor = document.querySelector("#cursor");
+
+        document.addEventListener("mousemove", function(e){
+            cursor.style.left = e.pageX + 'px';
+            cursor.style.top = e.pageY + 'px';
+        })
+    </script>
+</html>

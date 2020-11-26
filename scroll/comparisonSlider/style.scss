@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+li {
+  list-style: none;
+}
+
+:root {
+  --sliderWidth: 50rem;
+  --sliderHeight: 30rem;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #121212;
+}
+.compareBox {
+  position: relative;
+  width: var(--sliderWidth);
+  height: var(--sliderHeight);
+
+  .compare {
+    position: absolute;
+    width: var(--sliderWidth);
+    height: var(--sliderHeight);
+    border-radius: 0.4rem;
+    overflow: hidden;
+    user-select: none;
+    pointer-events: none;
+
+    img {
+      width: var(--sliderWidth);
+      height: var(--sliderHeight);
+      object-fit: cover;
+    }
+  }
+}
+.slideBtn {
+  position: absolute;
+  z-index: 1;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  background-color: #121212;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.8);
+  cursor: grab;
+  transition: border-color 0.2s;
+
+  &:active {
+    border: 0.1rem solid rgba(255, 255, 255, 0.3);
+    cursor: grabbing;
+  }
+}

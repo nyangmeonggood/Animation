@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tilt</title>
+    <link rel="stylesheet" href="../../reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="container">
+      <div class="card">
+        <img src="./Harry.jpg" alt />
+        <div class="desc">
+          <h2>Harry Styles</h2>
+          <p>
+            Harry Edward Styles (born 1 February 1994) is an English singer,
+            songwriter and actor.
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script>
+    const $card = document.querySelectorAll(".card");
+
+    $card.forEach((element) => {
+      element.addEventListener("mousemove", function (e) {
+        var width = this.clientWidth;
+        var height = this.clientHeight;
+        var x = e.offsetX;
+        var y = e.offsetY;
+        var X = Math.floor(20 * (x / width) - 10);
+        var Y = Math.floor(20 * (y / height) - 10);
+        this.style.setProperty("--x", Y + "deg");
+        this.style.setProperty("--y", X + "deg");
+      });
+
+      element.addEventListener("mouseleave", function () {
+        this.style.setProperty("--x", "0deg");
+        this.style.setProperty("--y", "0deg");
+      });
+    });
+  </script>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+      rel="stylesheet"
+    />
+    <title>Animation</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="bg"></div>
+    <div id="cover">
+      <div id="nameTag"><span>연수의 우당탕당 애니메이션</span></div>
+      <div class="line"></div>
+      <ul class="bookmark">
+        <li class="pointer" data-bookMark="pointer">
+          <p draggable="false">POINTER</p>
+        </li>
+        <li class="scroll" data-bookMark="scroll">
+          <p draggable="false">SCROLL</p>
+        </li>
+        <li class="list" data-bookMark="list"><p draggable="false">LIST</p></li>
+        <li class="motion" data-bookMark="motion">
+          <p draggable="false">MOTION</p>
+        </li>
+      </ul>
+      <ul class="contents">
+        <li class="pointer">
+          <ul>
+            <li>
+              <a href="./pointer/blendDifference/index.html">blendDifference</a>
+            </li>
+            <li><a href="./pointer/eyetracker/index.html">eyetracker</a></li>
+            <li><a href="./pointer/jjon_ddek/index.html">Jjon_ddek</a></li>
+            <li>
+              <a href="./pointer/scratchLottery/index.html">scratchLottery</a>
+            </li>
+            <li><a href="./pointer/Tilt/index.html">Tilt</a></li>
+          </ul>
+        </li>
+        <li class="scroll">
+          <ul>
+            <li>
+              <a href="./scroll/parallexOverlayText/index.html"
+                >parallexOverlayText</a
+              >
+            </li>
+            <li>
+              <a href="./scroll/comparisonSlider/index.html"
+                >comparisonSlider</a
+              >
+            </li>
+            <li>
+              <a href="./scroll/rangeBar/index.html">rangeBar</a>
+            </li>
+            <li>
+              <a href="./scroll/horizonScroll/index.html">horizonScroll</a>
+            </li>
+            <li>
+              <a href="./scroll/clipPathScroll/index.html">clipPathScroll</a>
+            </li>
+            <li>
+              <a href="./scroll/album/index.html">album</a>
+            </li>
+          </ul>
+        </li>
+        <li class="list">
+          <ul>
+            <li><a href="./list/3dbox/index.html">3Dbox</a></li>
+            <li><a href="./list/layeredList/index.html">layeredList</a></li>
+            <li><a href="./list/liquidNav/index.html">liquidNav</a></li>
+            <li><a href="./list/tiltBox/index.html">tiltBox</a></li>
+          </ul>
+        </li>
+        <li class="motion">
+          <ul>
+            <li><a href="./motion/bbuyo/index.html">Bbuyo</a></li>
+            <li><a href="./motion/BGtext/index.html">BGtext</a></li>
+            <li><a href="./motion/Book/index.html">Book</a></li>
+            <li><a href="./motion/circularBar/index.html">CircularBar</a></li>
+            <li><a href="./motion/clipPathText/index.html">clipPathText</a></li>
+            <li><a href="./motion/comportDeong/index.html">comportDeong</a></li>
+            <li><a href="./motion/jiggleText/index.html">JiggleText</a></li>
+            <li><a href="./motion/particleCard/index.html">particleCard</a></li>
+            <li><a href="./motion/pingPong/index.html">pingPong</a></li>
+            <li><a href="./motion/radiusWave/index.html">radiusWave</a></li>
+            <li><a href="./motion/skateBall/index.html">skateBall</a></li>
+            <li><a href="./motion/typeMotion/index.html">typeMotion</a></li>
+            <li><a href="./motion/wavetext/index.html">Wavetext</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      const bookmark = document.querySelector("ul.bookmark").children,
+        contents = document.querySelector("ul.contents"),
+        bg = document.querySelector("#bg"),
+        contentsChild = document.querySelector("ul.contents").children;
+
+      function clickPopUp() {
+        this.classList.add("active");
+        document
+          .querySelector("ul.contents li." + this.dataset.bookmark)
+          .classList.add("active");
+        setTimeout(function () {
+          bg.classList.add("active");
+        }, 200);
+      }
+
+      function clickPopDown() {
+        for (var i = 0; i < bookmark.length; i++) {
+          bookmark[i].classList.remove("active");
+          contentsChild[i].classList.remove("active");
+        }
+        bg.classList.remove("active");
+      }
+
+      bg.addEventListener("click", clickPopDown);
+
+      for (var i = 0; i < bookmark.length; i++) {
+        bookmark[i].addEventListener("click", clickPopUp);
+      }
+    </script>
+  </body>
+</html>

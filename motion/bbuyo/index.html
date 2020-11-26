@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bbuyo</title>
+    <link rel="stylesheet" href="../../reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="box">
+      <figure class="ball ball1"></figure>
+      <figure class="ball ball2"></figure>
+      <figure class="ball ball3"></figure>
+      <figure class="ball ball4"></figure>
+      <div id="cursor"></div>
+    </div>
+
+    <svg style="display: none">
+      <defs>
+        <filter id="filter">
+          <feGaussianBlur
+            in="SourceGraphic"
+            stdDeviation="10"
+            result="shadow"
+          />
+          <feColorMatrix
+            in="shadow"
+            type="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+            result="shadow"
+          />
+          <feComposite in="SourceGraphic" in2="shadow" operator="atop" />
+        </filter>
+      </defs>
+    </svg>
+  </body>
+
+  <script>
+    const $cursor = document.querySelector("#cursor");
+    window.addEventListener("mousemove", function (e) {
+      let X = e.clientX;
+      let Y = e.clientY;
+      console.log(X, Y);
+      $cursor.style.top = Y + "px";
+      $cursor.style.left = X + "px";
+    });
+  </script>
+</html>

@@ -1,0 +1,59 @@
+*,
+*:before,
+*:after {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+:root {
+    --scroll:100px;
+    --cardW: 20vw;
+    --cardH: 20vw;
+    --cardZInc: 0.5em;
+    --gap: 1.5em;
+    --ttxt: 0.5em;
+}
+
+body{    
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.container{
+    position: absolute;
+    top: 35%; left: 60%;
+
+    display: grid;   
+    transform-style: preserve-3d;
+    grid-template: repeat(4, var(--cardH)) / repeat(2, var(--cardW));
+    grid-gap: var(--gap);
+    transform: translate(-50%, calc(-40% + var(--scroll))) rotateX(45deg) rotateZ(45deg) translateY(calc(70% - var(--scroll)));
+    z-index: 1;
+    cursor: pointer;
+
+    >a{
+        img{
+            display: block;
+            width: 100%;
+        }
+
+        &:hover img,
+        &:focus img {
+        transition: all 0.5s;
+        transform-origin: center bottom;
+        z-index: 2;
+        }
+
+        &:nth-child(odd):hover img,
+        &:nth-child(odd):focus img {
+        transform: translateZ(calc(var(--cardZInc)*4)) rotateY(-40deg);
+        }
+
+        &:nth-child(even):hover img,
+        &:nth-child(even):focus img {
+        transform: translateZ(calc(var(--cardZInc)*4)) rotateY(40deg);
+        }
+    }
+}

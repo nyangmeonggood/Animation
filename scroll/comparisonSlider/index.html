@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>comparisonSlider</title>
+    <link rel="stylesheet" href="../../reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <ul class="compareBox">
+      <li class="compare">
+        <img src="./1.png" alt="" />
+      </li>
+      <li class="compare compareOverlay">
+        <img src="./2.png" alt="" />
+      </li>
+    </ul>
+  </body>
+
+  <script>
+    let isClicked = false;
+
+    const $img = document.querySelector(".compareOverlay");
+    const width = $img.offsetWidth;
+    const height = $img.offsetHeight;
+    const $btn = document.createElement("li");
+    drr();
+
+    function drr() {
+      $img.parentElement.insertBefore($btn, $img);
+      $btn.classList.add("slideBtn");
+      $btn.style.top = `${height / 2 - $btn.offsetHeight / 2}px`;
+      $btn.style.left = `${width / 2 - $btn.offsetWidth / 2}px`;
+      $img.style.width = "50%";
+
+      $btn.addEventListener("mousedown", onSlideStart);
+      $btn.addEventListener("touchstart", onSlideStart);
+
+      $btn.addEventListener("mousemove", onSlideMove);
+      $btn.addEventListener("touchmove", onSlideMove);
+
+      $btn.addEventListener("mouseleave", () => (isClicked = false));
+      $btn.addEventListener("touchcancel", () => (isClicked = false));
+      $btn.addEventListener("mouseup", () => (isClicked = false));
+      $btn.addEventListener("touchstop", () => (isClicked = false));
+    }
+
+    function onSlideStart(e) {
+      e.preventDefault();
+      isClicked = true;
+    }
+
+    function onSlideMove(e) {
+      if (isClicked) doSlide(currentPosition(e));
+    }
+
+    function currentPosition(e) {
+      let xImg = $img.getBoundingClientRect();
+      let x = 0;
+
+      x = e.pageX - xImg.left;
+
+      if (x < 0) x = 0;
+      if (x > width) x = width;
+
+      return x;
+    }
+
+    function doSlide(x) {
+      $img.style.width = `${x}px`;
+      $btn.style.left = `${$img.offsetWidth - $btn.offsetWidth / 2}px`;
+    }
+  </script>
+</html>

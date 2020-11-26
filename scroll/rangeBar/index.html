@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rangeBar</title>
+    <link rel="stylesheet" href="../../reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="container">
+      <ul>
+        <li>
+          <h2 id="number">0<span>%</span></h2>
+        </li>
+        <li>
+          <input
+            id="range"
+            type="range"
+            min="0"
+            max="100"
+            name="range"
+            value="0"
+            step="1"
+          />
+        </li>
+      </ul>
+    </section>
+  </body>
+
+  <script>
+    const $number = document.querySelector("#number");
+    const $range = document.querySelector("#range");
+    $range.addEventListener("input", handleRange);
+
+    function handleRange() {
+      $number.innerHTML = `${$range.value}<span>%</span>`;
+      $range.style.backgroundImage = `linear-gradient(to right, #ffa500 ${$range.value}%, #f1f1f1 ${$range.value}%)`;
+    }
+  </script>
+</html>

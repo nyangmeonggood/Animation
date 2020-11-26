@@ -1,0 +1,37 @@
+html,body{
+    width: 100%; height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: none !important;
+}
+
+ul{
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    font-weight: 500;
+}
+
+li{
+    margin-bottom: 18px;
+    cursor: none;
+}
+
+#cursor{
+    position: fixed;
+    width: 20px; height: 20px;
+    background-color: white;
+    border-radius: 20px;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    transition: transform 0.1s;
+    transform-origin: center;
+}
+
+li:hover ~ #cursor{
+    transform: scale(6);
+    cursor: none;
+}
+/*형제 선택자*/
