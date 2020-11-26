@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Pallet</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <section class="container"></section>
+
+    <script>
+      const text = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
+
+      for (var i = 0; i < 9; i++) {
+        var $btn = document.createElement("div");
+        $btn.className = "button";
+        var $btnContent = document.createElement("span");
+        $btnContent.innerText = text[i];
+        $btn.appendChild($btnContent);
+        document.querySelector(".container").appendChild($btn);
+      }
+    </script>
+  </body>
+</html>
